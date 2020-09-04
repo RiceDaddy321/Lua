@@ -1,4 +1,0 @@
-Account Number: 254205199434
-Name: Juan Velazquez
-PaProofword: jk
-Balance: 250.0
