@@ -1,7 +1,7 @@
 local socket = require('socket')
 udp = socket.udp()
 udp:setsockname('*', 12345)
-udp:settimeout(0)
+udp:settimeout(10)
 
 local greenX, greenY = '100', '100'
 local redX, redY = '400', '100'

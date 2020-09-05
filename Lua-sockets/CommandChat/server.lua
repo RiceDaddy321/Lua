@@ -1,4 +1,3 @@
-local socket = require("socket")
 udp = socket.udp()
 udp:setsockname('*', 12345)
 udp:settimeout(0)

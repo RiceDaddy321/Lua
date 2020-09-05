@@ -2,7 +2,7 @@ local socket = require "socket"
 local address, port = "localhost", 12345
 udp = socket.udp()
 udp:setpeername(address, port)
-udp:settimeout(0)
+udp:settimeout(10)
 
 local greenX, greenY = '100', '100'
 local redX, redY = '400', '100'
