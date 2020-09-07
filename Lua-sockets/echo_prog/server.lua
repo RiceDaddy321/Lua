@@ -3,13 +3,13 @@ local socket = require("socket")
 --create the socket and bind it the localhost to any port
 local server = assert(socket.bind("*", 12345))
 --give the client time to respond
-  server:settimeout(0)
+  server:settimeout(10)
 --print the happenings
 print("after connecting, you have 10 seconds to give me your social!")
 
 --loop until we got a response from the client. give them 3 chances to connect
 local i = 0
-while i < 3 do
+while true do
     --wait for a connection with the client
     if i>0 then 
         print(string.format( "attempt %s of connection. You have 10 seconds to respond\n", i+1))        
@@ -29,9 +29,7 @@ while i < 3 do
         client:close()
         break
     end
-    if i==2 then
-        print("Could not connect to a client.\n")
-    end
+
     i = i + 1
 end
 

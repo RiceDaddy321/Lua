@@ -1,11 +1,14 @@
 local address, port = "localhost", 12345
 local socket = require("socket")
 local tcp = assert(socket.tcp())
-
+tcp:settimeout(10)
 
 local j = 1
+
 repeat
+
 connected, err = tcp:connect(address, port)
+
 if connected then
     print(string.format( "successfully connected to port: %s address: %s",port, address))
     ip, serv_port = tcp:getpeername()
@@ -14,8 +17,9 @@ if connected then
 else
     print(string.format( "%s. Attempt %s", err, j))
 end
+
 j = j + 1
-until (connected or j > 10)
+until (connected)
 
 --to see if the message sends or not
 if sent_status ~= nil then
